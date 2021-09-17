@@ -1,7 +1,7 @@
 from dataclasses import asdict
 import json
 import time
-from typing import Optional, Union
+from typing import Optional, Union, List
 from urllib.parse import urljoin
 
 import pandas as pd
@@ -13,10 +13,10 @@ from metlo.utils import DateTimeEncoder
 
 
 def query(
-    metrics: Union[str, list[str]],
-    filters: list[Filter] = [],
-    groups: list[str] = [],
-    time_dimensions: list[TimeDimension] = []
+    metrics: Union[str, List[str]],
+    filters: List[Filter] = [],
+    groups: List[str] = [],
+    time_dimensions: List[TimeDimension] = []
 ) -> Optional[pd.DataFrame]:
     if not isinstance(metrics, list):
         metrics = [metrics]

@@ -9,7 +9,7 @@ with open(this_directory / 'requirements.in') as f:
 
 setuptools.setup(
     name='metlo',
-    version='0.0.1',
+    version='0.0.3',
     author='S2 Labs Inc.',
     author_email='akshay@metlo.com',
     description='Metlo\'s Python SDK',
@@ -27,6 +27,7 @@ setuptools.setup(
     project_urls={
         'Homepage': 'https://www.metlo.com',
         'Documentation': 'https://docs.metlo.com',
+        'Source Code': 'https://github.com/metlo-labs/metlo-python',
     },
     py_modules=['metlo'],
     package_dir={'':'.'},
