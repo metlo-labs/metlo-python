@@ -5,7 +5,8 @@ from dotenv import dotenv_values
 from pydantic.dataclasses import dataclass
 
 
-DEFAULT_CONFIG_PATH = '~/.metlo/credentials'
+DEFAULT_CONFIG_FOLDER = os.path.join(os.path.expanduser('~/.metlo'))
+DEFAULT_CONFIG_PATH = os.path.join(DEFAULT_CONFIG_FOLDER, 'credentials')
 API_KEY_NAME = 'METLO_API_KEY'
 HOST_KEY_NAME = 'METLO_HOST'
 

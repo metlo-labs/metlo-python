@@ -9,18 +9,20 @@ with open(this_directory / 'requirements.in') as f:
 
 setuptools.setup(
     name='metlo',
-    version='0.0.3',
+    version='0.0.4',
     author='S2 Labs Inc.',
     author_email='akshay@metlo.com',
     description='Metlo\'s Python SDK',
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=setuptools.find_packages(),
-    python_requires='>=2.7',
+    python_requires='>=3.0',
     license="MIT",
+    entry_points = {
+        'console_scripts': ['metlo=metlo.command_line:main'],
+    },
     classifiers=[
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
