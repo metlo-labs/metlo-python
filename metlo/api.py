@@ -8,7 +8,7 @@ import pandas as pd
 import requests
 
 from metlo.config import get_config
-from metlo.types import Filter, TimeDimension
+from metlo.types.query import Filter, TimeDimension
 from metlo.utils import DateTimeEncoder
 
 

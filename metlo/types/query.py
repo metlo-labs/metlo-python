@@ -3,7 +3,7 @@ from datetime import datetime
 from pydantic import conlist
 from pydantic.dataclasses import dataclass
 
-from metlo.enums import FilterOp, TimeGranularity
+from metlo.types.enums import FilterOp, TimeGranularity
 
 
 @dataclass
