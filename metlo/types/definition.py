@@ -54,6 +54,7 @@ class Metric:
 
 @dataclass
 class Join:
+    name: str
     table: str
     sql: str
     type: JoinType = JoinType.INNER
