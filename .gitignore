@@ -5,3 +5,4 @@ dist
 build
 metlo.egg-info
 metric_definitions
+.ipynb_checkpoints

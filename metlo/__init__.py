@@ -1,4 +1,4 @@
-__version__ = '0.0.7'
+__version__ = '0.0.8'
 
 from metlo.api import query
 from metlo.types.query import Filter, TimeDimension

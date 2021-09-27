@@ -19,7 +19,8 @@ def query(
     metrics: Union[str, List[str]],
     filters: List[Filter] = [],
     groups: List[str] = [],
-    time_dimensions: List[TimeDimension] = []
+    time_dimensions: List[TimeDimension] = [],
+    streaming = False,
 ) -> Optional[pd.DataFrame]:
     colorama_init()
     if not isinstance(metrics, list):
@@ -34,6 +35,7 @@ def query(
         'filters': [asdict(e) for e in filters],
         'groups': groups,
         'time_dimensions': [asdict(e) for e in time_dimensions],
+        'streaming': streaming,
     }
 
     if conf.definition_dir:
@@ -63,6 +65,9 @@ def query(
     if not query_res['ok']:
         print(query_res)
         return
+
+    if query_res.get('result'):
+        return pd.DataFrame(query_res['result'])
     
     poll_id = query_res['id']
     poll_url = urljoin(conf.host_name, f'api/fetch/{poll_id}')
@@ -82,5 +87,7 @@ def query(
 
     if poll_res.get('result'):
         return pd.DataFrame(poll_res['result'])
+    if poll_res.get('status') == 'SUCCESS':
+        return pd.DataFrame()
 
     print(poll_res)
