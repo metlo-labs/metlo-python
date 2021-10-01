@@ -1,5 +1,5 @@
 from dataclasses import field
-from typing import Optional
+from typing import Optional, List, Dict
 
 from pydantic.dataclasses import dataclass
 from pydantic import ValidationError, validator
@@ -49,7 +49,7 @@ class Metric:
     description: str
     type: MetricType = MetricType.SQL
     sql: Optional[str] = ''
-    filters: list[Filter] = field(default_factory=list)
+    filters: List[Filter] = field(default_factory=list)
 
 
 @dataclass
@@ -69,6 +69,6 @@ class Definition:
     owner: str = ''
     description: str = ''
     derived_table: bool = False
-    joins: list[Join] = field(default_factory=list)
-    metrics: list[Metric] = field(default_factory=list)
-    dimensions: dict[str, Dimension] = field(default_factory=dict)
+    joins: List[Join] = field(default_factory=list)
+    metrics: List[Metric] = field(default_factory=list)
+    dimensions: Dict[str, Dimension] = field(default_factory=dict)
