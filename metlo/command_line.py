@@ -1,6 +1,5 @@
 import argparse
 from getpass import getpass
-from glob import glob
 import os
 
 from colorama import init as colorama_init
@@ -10,7 +9,7 @@ from pydantic import ValidationError
 from metlo.config import (
     DEFAULT_CONFIG_PATH, DEFAULT_CONFIG_FOLDER, API_KEY_NAME, HOST_KEY_NAME
 )
-from metlo.load_definitions import load_single_def
+from metlo.load_definitions import get_yaml_paths, load_single_def
 
 
 def setup():
@@ -25,7 +24,7 @@ def setup():
 
 
 def validate(directory: str):
-    yaml_paths = glob(os.path.join(directory, '*.yaml'))
+    yaml_paths = get_yaml_paths(directory)
     for yaml_path in yaml_paths:
         try:
             print(f'Validating {yaml_path}')
