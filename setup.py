@@ -9,7 +9,7 @@ with open(this_directory / 'requirements.in') as f:
 
 setuptools.setup(
     name='metlo',
-    version='0.0.8',
+    version='0.0.9',
     author='S2 Labs Inc.',
     author_email='akshay@metlo.com',
     description='Metlo\'s Python SDK',
