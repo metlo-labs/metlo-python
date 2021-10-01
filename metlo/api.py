@@ -61,6 +61,13 @@ def query(
     )
     if not res.ok:
         print(colored(f'Query Failed: {res.status_code}', 'red'))
+        try:
+            query_res = res.json()
+            if 'msg' in query_res:
+                msg = query_res['msg']
+                print(colored(msg, 'red'))
+        except:
+            pass
         return
     query_res = res.json()
 
@@ -85,7 +92,7 @@ def query(
         time.sleep(1)
     
     if fetch_status == 'FAILURE':
-        print(colored(f'Query Failed', 'red'))
+        print(colored('Query Failed', 'red'))
 
     if poll_res.get('result'):
         return pd.DataFrame(poll_res['result'])

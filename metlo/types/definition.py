@@ -64,10 +64,10 @@ class Join:
 class Definition:
     id: str
     name: str
-    owner: str
-    description: str
     datasource: str
     table: str
+    owner: str = ''
+    description: str = ''
     derived_table: bool = False
     joins: list[Join] = field(default_factory=list)
     metrics: list[Metric] = field(default_factory=list)
