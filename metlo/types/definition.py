@@ -46,7 +46,7 @@ class Dimension:
 @dataclass
 class Metric:
     name: str
-    description: str
+    description: str = ''
     type: MetricType = MetricType.SQL
     sql: Optional[str] = ''
     filters: List[Filter] = field(default_factory=list)
