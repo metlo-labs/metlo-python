@@ -20,6 +20,7 @@ def query(
     filters: List[Filter] = [],
     groups: List[str] = [],
     time_dimensions: List[TimeDimension] = [],
+    limit: Optional[int] = None,
     streaming = False,
 ) -> Optional[pd.DataFrame]:
     colorama_init()
@@ -35,6 +36,7 @@ def query(
         'filters': [asdict(e) for e in filters],
         'groups': groups,
         'time_dimensions': [asdict(e) for e in time_dimensions],
+        'limit': limit,
         'streaming': streaming,
     }
 
